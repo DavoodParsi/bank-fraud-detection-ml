@@ -1,4 +1,5 @@
 ![Bank Fraud Detection ML](assets/banner.png)
+<<<<<<< HEAD
 ![Python](https://img.shields.io/badge/Python-3.8%2B-blue)
 ![scikit-learn](https://img.shields.io/badge/scikit--learn-ML-orange)
 ![Status](https://img.shields.io/badge/Status-Completed-success)
@@ -7,6 +8,12 @@
 # 🏦 Bank Fraud Detection using Machine Learning
 
 > A complete end-to-end machine learning project for detecting fraudulent banking transactions, including EDA, feature engineering, model training, and evaluation using real-world transaction data.
+=======
+
+# README_EN.md
+
+# Bank Fraud Detection - Machine Learning Project
+>>>>>>> cdba4ba6f879374b6815bd00eee39712f5e8fb02
 
 ## Project Overview
 This project is designed to detect fraudulent banking transactions using classical machine learning algorithms. The pipeline includes steps for exploratory data analysis (EDA), feature engineering, model training, and final evaluation. It is structured to be fully reproducible and ready for GitHub showcase or portfolio use.
@@ -14,8 +21,11 @@ This project is designed to detect fraudulent banking transactions using classic
 ## Dataset
 The dataset contains real banking transactions with multiple features related to each transaction. It has been preprocessed and cleaned for modeling purposes.
 
+<<<<<<< HEAD
 > Note: The dataset is anonymized and used strictly for educational and research purposes.
 
+=======
+>>>>>>> cdba4ba6f879374b6815bd00eee39712f5e8fb02
 ### Columns
 | Column | Description | Data Type |
 |--------|-------------|-----------|
@@ -61,12 +71,20 @@ bank-fraud-detection-ml/
 │   ├── confusion_matrix.png
 │   └── roc_curve.png
 ├── requirements.txt
+<<<<<<< HEAD
 └── README.md 
 ```
 
 ## Workflow
 1. **EDA (`01_eda.ipynb`)**: Explore the dataset, visualize distributions, correlations, and class imbalance.
 
+=======
+└── README.md / README_EN.md
+```
+
+## Workflow
+1. **EDA (`01_eda.ipynb`)**: Explore the dataset, visualize distributions, correlations, and class imbalance.  
+>>>>>>> cdba4ba6f879374b6815bd00eee39712f5e8fb02
 2. **Feature Engineering (`02_feature_engineering.ipynb`)**: Handle missing values, encode categorical features, scale numerical features.  
 3. **Modeling (`03_modeling.ipynb`)**: Train Logistic Regression and Random Forest models; evaluate performance.  
 4. **Evaluation (`04_evaluation.ipynb`)**: Final evaluation using confusion matrix and ROC curve; save the best model.  
@@ -95,9 +113,13 @@ pip install -r requirements.txt
 - Only the **best-performing model (Random Forest)** is saved for deployment.  
 - Notebooks and code are structured for **easy and error-free execution**.  
 - Suitable for **GitHub showcase** and **portfolio projects**.
+<<<<<<< HEAD
 - Final Model: Random Forest (best ROC-AUC & recall on fraud class)
 
 ## Future Improvements
 - Handle class imbalance with SMOTE or focal loss  
 - Add XGBoost / LightGBM  
 - Deploy model as a REST API  
+=======
+
+>>>>>>> cdba4ba6f879374b6815bd00eee39712f5e8fb02
