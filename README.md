@@ -1,5 +1,5 @@
 ![Bank Fraud Detection ML](assets/banner.png)
-<<<<<<< HEAD
+
 ![Python](https://img.shields.io/badge/Python-3.8%2B-blue)
 ![scikit-learn](https://img.shields.io/badge/scikit--learn-ML-orange)
 ![Status](https://img.shields.io/badge/Status-Completed-success)
@@ -7,25 +7,28 @@
 
 # 🏦 Bank Fraud Detection using Machine Learning
 
-> A complete end-to-end machine learning project for detecting fraudulent banking transactions, including EDA, feature engineering, model training, and evaluation using real-world transaction data.
-=======
+This repository contains a **Machine Learning project for detecting fraudulent bank transactions**.  
+The objective is to classify transactions as **Fraudulent (1)** or **Legitimate (0)** using supervised learning techniques.
 
-# README_EN.md
+The project covers the **entire ML pipeline**, from raw and imperfect data to model evaluation and comparison.
 
-# Bank Fraud Detection - Machine Learning Project
->>>>>>> cdba4ba6f879374b6815bd00eee39712f5e8fb02
+---
 
-## Project Overview
-This project is designed to detect fraudulent banking transactions using classical machine learning algorithms. The pipeline includes steps for exploratory data analysis (EDA), feature engineering, model training, and final evaluation. It is structured to be fully reproducible and ready for GitHub showcase or portfolio use.
+## 📌 Project Overview
 
+Financial fraud is a critical problem in modern banking systems. Manual rule-based systems are often insufficient due to evolving fraud patterns.  
+Machine Learning enables automatic detection by learning complex patterns from historical transaction data.
+
+In this project:
+- A real-world–like banking dataset is analyzed
+- Missing values and mixed data types are handled
+- Multiple ML models are trained and evaluated
+- The best-performing model is selected based on robust metrics
+
+---
 ## Dataset
 The dataset contains real banking transactions with multiple features related to each transaction. It has been preprocessed and cleaned for modeling purposes.
 
-<<<<<<< HEAD
-> Note: The dataset is anonymized and used strictly for educational and research purposes.
-
-=======
->>>>>>> cdba4ba6f879374b6815bd00eee39712f5e8fb02
 ### Columns
 | Column | Description | Data Type |
 |--------|-------------|-----------|
@@ -51,75 +54,144 @@ The dataset contains real banking transactions with multiple features related to
 | Is_Weekend | Whether transaction occurred on a weekend | float64 |
 | Fraud_Label | Fraudulent transaction indicator (1 = fraud, 0 = non-fraud) | float64 |
 
-## Project Structure
+## 📊 Dataset Description
+
+- Number of samples: **50,000**
+- Number of features: **21**
+- Target variable: `Fraud_Label`
+  - `0` → Legitimate transaction
+  - `1` → Fraudulent transaction
+- The dataset is **imbalanced**, reflecting real banking scenarios
+- The dataset was provided for academic training purposes
+
+### Feature Categories
+
+- **Transaction details**  
+  `Transaction_Amount`, `Transaction_Type`, `Timestamp`, `Transaction_Distance`
+
+- **User & account information**  
+  `User_ID`, `Account_Balance`, `Card_Type`, `Card_Age`
+
+- **Behavioral & risk indicators**  
+  `Daily_Transaction_Count`, `Avg_Transaction_Amount_7d`,  
+  `Failed_Transaction_Count_7d`, `Previous_Fraudulent_Activity`, `Risk_Score`
+
+- **Contextual features**  
+  `Device_Type`, `Location`, `Merchant_Category`, `Authentication_Method`, `Is_Weekend`
+
+---
+
+## 🧹 Data Preprocessing
+
+The original dataset was **not clean** and required multiple preprocessing steps:
+
+- Handling missing values
+- Encoding categorical variables
+- Feature selection
+- Train-test split with stratification
+
+```python
+X_train, X_test, y_train, y_test = train_test_split(
+    X, y, test_size=0.2, random_state=42, stratify=y
+)
+```
+
+All preprocessing steps were applied consistently to avoid data leakage.
+
+---
+
+## 🧠 Models Trained
+
+- Logistic Regression
+- Random Forest Classifier
+
+Random Forest was selected as the final model due to superior performance.
+
+---
+
+## 📈 Model Evaluation
+
+### Logistic Regression
+
+Accuracy: **0.81**  
+AUC-ROC: **0.8876**
+
+| Class | Precision | Recall | F1-score |
+|------|----------|--------|----------|
+| Legitimate (0) | 0.85 | 0.88 | 0.86 |
+| Fraud (1) | 0.71 | 0.65 | 0.68 |
+
+---
+
+### Random Forest (Final Model)
+
+Accuracy: **0.99**  
+AUC-ROC: **0.9889**
+
+| Class | Precision | Recall | F1-score |
+|------|----------|--------|----------|
+| Legitimate (0) | 0.99 | 0.99 | 0.99 |
+| Fraud (1) | 0.98 | 0.98 | 0.98 |
+
+✔ Random Forest significantly outperformed Logistic Regression.
+
+---
+
+## 📁 Project Structure
+
 ```
 bank-fraud-detection-ml/
 │
 ├── data/
 │   ├── fraud_dataset_mod.csv
+│   ├── fraud_dataset_processed.csv
 │   └── README.md
 ├── notebooks/
 │   ├── 01_eda.ipynb
 │   ├── 02_feature_engineering.ipynb
 │   ├── 03_modeling.ipynb
-│   └── 04_evaluation.ipynb
+│   ├── 04_evaluation.ipynb
+│   └── notebook.ipynb
 ├── src/
 │   ├── preprocessing.py
 │   ├── models.py
-│   └── evaluation.py
+│   ├── evaluation.py
+│   └── models/
+│       └── rf_model.pkl
 ├── results/
 │   ├── confusion_matrix.png
 │   └── roc_curve.png
 ├── requirements.txt
-<<<<<<< HEAD
 └── README.md 
 ```
 
-## Workflow
-1. **EDA (`01_eda.ipynb`)**: Explore the dataset, visualize distributions, correlations, and class imbalance.
+---
 
-=======
-└── README.md / README_EN.md
-```
+## ▶️ How to Run
 
-## Workflow
-1. **EDA (`01_eda.ipynb`)**: Explore the dataset, visualize distributions, correlations, and class imbalance.  
->>>>>>> cdba4ba6f879374b6815bd00eee39712f5e8fb02
-2. **Feature Engineering (`02_feature_engineering.ipynb`)**: Handle missing values, encode categorical features, scale numerical features.  
-3. **Modeling (`03_modeling.ipynb`)**: Train Logistic Regression and Random Forest models; evaluate performance.  
-4. **Evaluation (`04_evaluation.ipynb`)**: Final evaluation using confusion matrix and ROC curve; save the best model.  
-
-## Installation & Usage
-1. Clone the repository:  
 ```bash
 git clone https://github.com/DavoodParsi/bank-fraud-detection-ml.git
-cd bank-fraud-detection-ml
-```
-
-2. Install dependencies:  
-```bash
 pip install -r requirements.txt
 ```
 
-3. Run notebooks in order:  
-   - `01_eda.ipynb`  
-   - `02_feature_engineering.ipynb`  
-   - `03_modeling.ipynb`  
-   - `04_evaluation.ipynb`  
+---
 
-4. View results in the `results/` folder (`confusion_matrix.png` & `roc_curve.png`).  
+## 🚀 Key Takeaways
 
-## Notes
-- Only the **best-performing model (Random Forest)** is saved for deployment.  
-- Notebooks and code are structured for **easy and error-free execution**.  
-- Suitable for **GitHub showcase** and **portfolio projects**.
-<<<<<<< HEAD
-- Final Model: Random Forest (best ROC-AUC & recall on fraud class)
+- Fraud datasets are noisy and imbalanced
+- Proper preprocessing is critical
+- Ensemble models perform very well
+- Metrics beyond accuracy are essential
 
-## Future Improvements
-- Handle class imbalance with SMOTE or focal loss  
-- Add XGBoost / LightGBM  
-- Deploy model as a REST API  
-=======
+---
 
->>>>>>> cdba4ba6f879374b6815bd00eee39712f5e8fb02
+## 👤 Author
+
+Davood Parsi  
+Machine Learning Enthusiast
+
+---
+
+## 📜 License
+
+MIT License
