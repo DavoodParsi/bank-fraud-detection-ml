@@ -1,3 +1,5 @@
+![Bank Fraud Detection ML](assets/banner.png)
+
 # README_EN.md
 
 # Bank Fraud Detection - Machine Learning Project
