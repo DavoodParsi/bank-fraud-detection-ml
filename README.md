@@ -1,6 +1,6 @@
 "Bank Fraud Detection ML" (assets/banner.png)
 
-🏦 Bank Fraud Detection using Machine Learning
+Bank Fraud Detection using Machine Learning
 
 A practical machine learning project for detecting potentially fraudulent bank transactions using data preprocessing, feature engineering, classification models, and model evaluation.
 
@@ -17,14 +17,14 @@ The goal of this project is to build a binary classification model that identifi
 - Legitimate ("0")
 - Fraudulent ("1")
 
-The project follows a practical machine learning workflow, covering data preparation, feature engineering, model training, evaluation, and comparison.
+The project follows a practical machine learning workflow covering data preparation, feature engineering, model training, evaluation, and model comparison.
 
 The main models evaluated are:
 
 - Logistic Regression
 - Random Forest
 
-The project focuses on understanding the complete modeling workflow and evaluating classification performance on an imbalanced transaction dataset.
+This project focuses on understanding and implementing a complete machine learning workflow for an imbalanced transaction classification problem.
 
 ---
 
@@ -54,7 +54,7 @@ The project follows these main steps:
 6. Model training
 7. Model evaluation
 8. Model comparison
-9. Saving the trained model
+9. Model saving
 
 The train/test split uses stratification to preserve the class distribution between the training and test sets.
 
@@ -68,7 +68,7 @@ Logistic Regression is used as a baseline classification model.
 
 Random Forest
 
-Random Forest is evaluated as an ensemble-based alternative.
+Random Forest is evaluated as an ensemble-based classification model.
 
 On the available dataset, Random Forest achieved higher evaluation metrics than Logistic Regression.
 
@@ -76,15 +76,19 @@ On the available dataset, Random Forest achieved higher evaluation metrics than 
 
 Evaluation Results
 
-The models were evaluated using accuracy, precision, recall, F1-score, and ROC-AUC.
+The models were evaluated using:
+
+- Accuracy
+- Precision
+- Recall
+- F1-score
+- ROC-AUC
 
 Overall Performance
 
 Model| Accuracy| ROC-AUC
 Logistic Regression| 0.81| 0.8876
 Random Forest| 0.99| 0.9889
-
-Classification Metrics
 
 Logistic Regression
 
@@ -98,7 +102,7 @@ Class| Precision| Recall| F1-score
 Legitimate| 0.99| 0.99| 0.99
 Fraudulent| 0.98| 0.98| 0.98
 
-Because fraud detection involves an imbalanced target, evaluation should not rely on accuracy alone. Precision, recall, F1-score, and ROC-AUC provide additional information about classification performance.
+Because fraud detection involves an imbalanced target, accuracy alone is not sufficient to describe model performance. Precision, recall, F1-score, and ROC-AUC provide additional evaluation perspectives.
 
 ---
 
@@ -121,10 +125,9 @@ bank-fraud-detection-ml/
 ├── src/
 │   ├── evaluate.py
 │   ├── preprocess.py
-│   └── models.py
-│
-├── src/models/
-│   └── rf_model.pkl
+│   ├── models.py
+│   └── models/
+│       └── rf_model.pkl
 │
 ├── README.md
 └── requirements.txt
@@ -154,19 +157,20 @@ The main libraries used in this project are:
 - Joblib
 - Jupyter
 
-See "requirements.txt" for the project dependencies.
+See "requirements.txt" for the complete dependency list.
 
 ---
 
 Key Takeaways
 
-This project demonstrates several important machine learning practices:
+This project demonstrates practical machine learning skills including:
 
-- Handling structured transaction data
-- Preparing categorical and numerical features
-- Working with imbalanced classification data
+- Working with structured transaction data
+- Handling categorical and numerical features
+- Preparing data for classification
+- Working with imbalanced datasets
 - Comparing baseline and ensemble models
-- Evaluating classification models using multiple metrics
+- Evaluating models using multiple classification metrics
 - Saving a trained model for later use
 
 ---
@@ -183,7 +187,8 @@ It does not currently cover:
 - Production model monitoring
 - Automated retraining pipelines
 - Advanced anomaly-detection techniques
-- Model serving and API deployment
+- API deployment
+- Containerized deployment
 - Security, compliance, and regulatory requirements
 
 Therefore, the reported performance should be interpreted as dataset-specific evaluation results rather than evidence of production readiness.
@@ -192,16 +197,16 @@ Therefore, the reported performance should be interpreted as dataset-specific ev
 
 Future Improvements
 
-Potential extensions for a more advanced version of this project include:
+Potential extensions for a more advanced version include:
 
+- Advanced feature engineering
 - Improved handling of class imbalance
 - Threshold optimization based on fraud-detection costs
-- Advanced feature engineering
 - Gradient boosting models
 - Explainable AI techniques
 - Model monitoring and drift detection
 - API deployment
-- Containerized deployment with Docker
+- Docker-based deployment
 
 ---
 
