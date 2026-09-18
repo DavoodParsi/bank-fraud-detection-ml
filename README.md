@@ -1,200 +1,212 @@
-![Bank Fraud Detection ML](assets/banner.png)
+"Bank Fraud Detection ML" (assets/banner.png)
 
-![Python](https://img.shields.io/badge/Python-3.8%2B-blue)
-![scikit-learn](https://img.shields.io/badge/scikit--learn-ML-orange)
-![Status](https://img.shields.io/badge/Status-Completed-success)
-![License](https://img.shields.io/badge/License-MIT-lightgrey)
+🏦 Bank Fraud Detection using Machine Learning
 
-# 🏦 Bank Fraud Detection using Machine Learning
+A practical machine learning project for detecting potentially fraudulent bank transactions using data preprocessing, feature engineering, classification models, and model evaluation.
 
-This repository contains a **Machine Learning project for detecting fraudulent bank transactions**.  
-The objective is to classify transactions as **Fraudulent (1)** or **Legitimate (0)** using supervised learning techniques.
-
-The project covers the **entire ML pipeline**, from raw and imperfect data to model evaluation and comparison.
+"Python" (https://img.shields.io/badge/Python-3.8%2B-blue)
+"scikit-learn" (https://img.shields.io/badge/scikit--learn-ML-orange)
+"Status" (https://img.shields.io/badge/Status-Completed-success)
 
 ---
 
-## 📌 Project Overview
+Overview
 
-Financial fraud is a critical problem in modern banking systems. Manual rule-based systems are often insufficient due to evolving fraud patterns.  
-Machine Learning enables automatic detection by learning complex patterns from historical transaction data.
+The goal of this project is to build a binary classification model that identifies whether a bank transaction is:
 
-In this project:
-- A real-world–like banking dataset is analyzed
-- Missing values and mixed data types are handled
-- Multiple ML models are trained and evaluated
-- The best-performing model is selected based on robust metrics
+- Legitimate ("0")
+- Fraudulent ("1")
 
----
-## Dataset
-The dataset contains real banking transactions with multiple features related to each transaction. It has been preprocessed and cleaned for modeling purposes.
+The project follows a practical machine learning workflow, covering data preparation, feature engineering, model training, evaluation, and comparison.
 
-### Columns
-| Column | Description | Data Type |
-|--------|-------------|-----------|
-| Transaction_ID | Unique transaction identifier | object |
-| User_ID | Unique user identifier | object |
-| Transaction_Amount | Transaction amount | float64 |
-| Transaction_Type | Transaction type (purchase, withdrawal, etc.) | object |
-| Timestamp | Transaction timestamp | object |
-| Account_Balance | User account balance at transaction time | float64 |
-| Device_Type | Device used for the transaction | object |
-| Location | Transaction location | object |
-| Merchant_Category | Merchant category (online, retail, etc.) | object |
-| IP_Address_Flag | Flag if IP address is repeated | float64 |
-| Previous_Fraudulent_Activity | Previous fraudulent activity | float64 |
-| Daily_Transaction_Count | Number of daily transactions | float64 |
-| Avg_Transaction_Amount_7d | Average transaction amount over last 7 days | float64 |
-| Failed_Transaction_Count_7d | Number of failed transactions over last 7 days | float64 |
-| Card_Type | Card type (Visa, MasterCard, etc.) | object |
-| Card_Age | Age of the card | float64 |
-| Transaction_Distance | Distance of transaction from user location | float64 |
-| Authentication_Method | Authentication method (OTP, fingerprint, etc.) | object |
-| Risk_Score | Transaction risk score | float64 |
-| Is_Weekend | Whether transaction occurred on a weekend | float64 |
-| Fraud_Label | Fraudulent transaction indicator (1 = fraud, 0 = non-fraud) | float64 |
-
-## 📊 Dataset Description
-
-- Number of samples: **50,000**
-- Number of features: **21**
-- Target variable: `Fraud_Label`
-  - `0` → Legitimate transaction
-  - `1` → Fraudulent transaction
-- The dataset is **imbalanced**, reflecting real banking scenarios
-- The dataset was provided for academic training purposes
-
-### Feature Categories
-
-- **Transaction details**  
-  `Transaction_Amount`, `Transaction_Type`, `Timestamp`, `Transaction_Distance`
-
-- **User & account information**  
-  `User_ID`, `Account_Balance`, `Card_Type`, `Card_Age`
-
-- **Behavioral & risk indicators**  
-  `Daily_Transaction_Count`, `Avg_Transaction_Amount_7d`,  
-  `Failed_Transaction_Count_7d`, `Previous_Fraudulent_Activity`, `Risk_Score`
-
-- **Contextual features**  
-  `Device_Type`, `Location`, `Merchant_Category`, `Authentication_Method`, `Is_Weekend`
-
----
-
-## 🧹 Data Preprocessing
-
-The original dataset was **not clean** and required multiple preprocessing steps:
-
-- Handling missing values
-- Encoding categorical variables
-- Feature selection
-- Train-test split with stratification
-
-```python
-X_train, X_test, y_train, y_test = train_test_split(
-    X, y, test_size=0.2, random_state=42, stratify=y
-)
-```
-
-All preprocessing steps were applied consistently to avoid data leakage.
-
----
-
-## 🧠 Models Trained
+The main models evaluated are:
 
 - Logistic Regression
-- Random Forest Classifier
+- Random Forest
 
-Random Forest was selected as the final model due to superior performance.
-
----
-
-## 📈 Model Evaluation
-
-### Logistic Regression
-
-Accuracy: **0.81**  
-AUC-ROC: **0.8876**
-
-| Class | Precision | Recall | F1-score |
-|------|----------|--------|----------|
-| Legitimate (0) | 0.85 | 0.88 | 0.86 |
-| Fraud (1) | 0.71 | 0.65 | 0.68 |
+The project focuses on understanding the complete modeling workflow and evaluating classification performance on an imbalanced transaction dataset.
 
 ---
 
-### Random Forest (Final Model)
+Dataset
 
-Accuracy: **0.99**  
-AUC-ROC: **0.9889**
+The dataset contains:
 
-| Class | Precision | Recall | F1-score |
-|------|----------|--------|----------|
-| Legitimate (0) | 0.99 | 0.99 | 0.99 |
-| Fraud (1) | 0.98 | 0.98 | 0.98 |
+- 50,000 transactions
+- 21 features
+- Target variable: "Fraud_Label"
+- Binary classification target
+- Imbalanced class distribution
 
-✔ Random Forest significantly outperformed Logistic Regression.
+The dataset is used for academic and portfolio training purposes. The reported results are specific to this dataset and should not be interpreted as production fraud-detection performance.
 
 ---
 
-## 📁 Project Structure
+Project Workflow
 
-```
+The project follows these main steps:
+
+1. Data loading and exploration
+2. Missing-value handling
+3. Categorical feature encoding
+4. Feature selection and preparation
+5. Train/test splitting with stratification
+6. Model training
+7. Model evaluation
+8. Model comparison
+9. Saving the trained model
+
+The train/test split uses stratification to preserve the class distribution between the training and test sets.
+
+---
+
+Models
+
+Logistic Regression
+
+Logistic Regression is used as a baseline classification model.
+
+Random Forest
+
+Random Forest is evaluated as an ensemble-based alternative.
+
+On the available dataset, Random Forest achieved higher evaluation metrics than Logistic Regression.
+
+---
+
+Evaluation Results
+
+The models were evaluated using accuracy, precision, recall, F1-score, and ROC-AUC.
+
+Overall Performance
+
+Model| Accuracy| ROC-AUC
+Logistic Regression| 0.81| 0.8876
+Random Forest| 0.99| 0.9889
+
+Classification Metrics
+
+Logistic Regression
+
+Class| Precision| Recall| F1-score
+Legitimate| 0.85| 0.88| 0.86
+Fraudulent| 0.71| 0.65| 0.68
+
+Random Forest
+
+Class| Precision| Recall| F1-score
+Legitimate| 0.99| 0.99| 0.99
+Fraudulent| 0.98| 0.98| 0.98
+
+Because fraud detection involves an imbalanced target, evaluation should not rely on accuracy alone. Precision, recall, F1-score, and ROC-AUC provide additional information about classification performance.
+
+---
+
+Project Structure
+
 bank-fraud-detection-ml/
 │
+├── assets/
+│   └── banner.png
+│
 ├── data/
-│   ├── fraud_dataset_mod.csv
-│   ├── fraud_dataset_processed.csv
-│   └── README.md
+│   └── ...
+│
 ├── notebooks/
-│   ├── 01_eda.ipynb
-│   ├── 02_feature_engineering.ipynb
-│   ├── 03_modeling.ipynb
-│   ├── 04_evaluation.ipynb
-│   └── notebook.ipynb
-├── src/
-│   ├── preprocessing.py
-│   ├── models.py
-│   ├── evaluation.py
-│   └── models/
-│       └── rf_model.pkl
+│   └── ...
+│
 ├── results/
-│   ├── confusion_matrix.png
-│   └── roc_curve.png
-├── requirements.txt
-└── README.md 
-```
+│   └── ...
+│
+├── src/
+│   ├── evaluate.py
+│   ├── preprocess.py
+│   └── models.py
+│
+├── src/models/
+│   └── rf_model.pkl
+│
+├── README.md
+└── requirements.txt
 
 ---
 
-## ▶️ How to Run
+Installation
 
-```bash
-git clone https://github.com/DavoodParsi/bank-fraud-detection-ml.git
+Clone the repository and install the required dependencies:
+
+git clone <repository-url>
+cd bank-fraud-detection-ml
 pip install -r requirements.txt
-```
 
 ---
 
-## 🚀 Key Takeaways
+Requirements
 
-- Fraud datasets are noisy and imbalanced
-- Proper preprocessing is critical
-- Ensemble models perform very well
-- Metrics beyond accuracy are essential
+The main libraries used in this project are:
+
+- Python
+- NumPy
+- Pandas
+- Matplotlib
+- Seaborn
+- Scikit-learn
+- Joblib
+- Jupyter
+
+See "requirements.txt" for the project dependencies.
 
 ---
 
-## 👤 Author
+Key Takeaways
 
-Davood Parsi  
-Machine Learning Enthusiast
+This project demonstrates several important machine learning practices:
+
+- Handling structured transaction data
+- Preparing categorical and numerical features
+- Working with imbalanced classification data
+- Comparing baseline and ensemble models
+- Evaluating classification models using multiple metrics
+- Saving a trained model for later use
 
 ---
 
-## 📜 License
+Limitations
 
-MIT License
+This project is intended as a practical machine learning and portfolio exercise rather than a production fraud-detection system.
 
+It does not currently cover:
 
-<!-- README updated on Feb 2026 -->
+- Real-time transaction processing
+- Cost-sensitive threshold optimization
+- Concept drift detection
+- Production model monitoring
+- Automated retraining pipelines
+- Advanced anomaly-detection techniques
+- Model serving and API deployment
+- Security, compliance, and regulatory requirements
+
+Therefore, the reported performance should be interpreted as dataset-specific evaluation results rather than evidence of production readiness.
+
+---
+
+Future Improvements
+
+Potential extensions for a more advanced version of this project include:
+
+- Improved handling of class imbalance
+- Threshold optimization based on fraud-detection costs
+- Advanced feature engineering
+- Gradient boosting models
+- Explainable AI techniques
+- Model monitoring and drift detection
+- API deployment
+- Containerized deployment with Docker
+
+---
+
+Author
+
+Davood Parsi
+
+AI/ML Engineer focused on Machine Learning, Deep Learning, and Computer Vision.
