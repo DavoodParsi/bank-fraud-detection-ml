@@ -32,11 +32,11 @@ This project focuses on understanding the complete machine learning workflow and
 
 The dataset contains:
 
-* **50,000 transactions**
-* **21 features**
-* Target variable: `Fraud_Label`
-* Binary classification target
-* Imbalanced class distribution
+- **50,000 transactions**
+- **21 features**
+- Target variable: `Fraud_Label`
+- Binary classification target
+- Imbalanced class distribution
 
 The dataset is used for academic and portfolio training purposes. The reported results are specific to this dataset and should not be interpreted as production fraud-detection performance.
 
@@ -80,33 +80,34 @@ The models were evaluated using accuracy, precision, recall, F1-score, and ROC-A
 
 ### Overall Performance
 
-| Model               | Accuracy | ROC-AUC |
-| ------------------- | -------: | ------: |
-| Logistic Regression |     0.81 |  0.8876 |
-| Random Forest       |     0.99 |  0.9889 |
+| Model | Accuracy | ROC-AUC |
+|---|---:|---:|
+| Logistic Regression | 0.81 | 0.8876 |
+| Random Forest | 0.99 | 0.9889 |
 
 ### Classification Metrics
 
 #### Logistic Regression
 
-| Class      | Precision | Recall | F1-score |
-| ---------- | --------: | -----: | -------: |
-| Legitimate |      0.85 |   0.88 |     0.86 |
-| Fraudulent |      0.71 |   0.65 |     0.68 |
+| Class | Precision | Recall | F1-score |
+|---|---:|---:|---:|
+| Legitimate | 0.85 | 0.88 | 0.86 |
+| Fraudulent | 0.71 | 0.65 | 0.68 |
 
 #### Random Forest
 
-| Class      | Precision | Recall | F1-score |
-| ---------- | --------: | -----: | -------: |
-| Legitimate |      0.99 |   0.99 |     0.99 |
-| Fraudulent |      0.98 |   0.98 |     0.98 |
+| Class | Precision | Recall | F1-score |
+|---|---:|---:|---:|
+| Legitimate | 0.99 | 0.99 | 0.99 |
+| Fraudulent | 0.98 | 0.98 | 0.98 |
 
 Because fraud detection involves an imbalanced target, accuracy alone is not sufficient to describe model performance. Precision, recall, F1-score, and ROC-AUC provide additional evaluation perspectives.
+
 ---
 
 ## Project Structure
 
-<pre>
+```text
 bank-fraud-detection-ml/
 │
 ├── assets/
@@ -130,18 +131,19 @@ bank-fraud-detection-ml/
 │
 ├── README.md
 └── requirements.txt
-</pre>
+```
+
 ---
 
 ## Installation
 
 Clone the repository and install the required dependencies:
 
-<pre>
+```bash
 git clone https://github.com/DavoodParsi/bank-fraud-detection-ml.git
 cd bank-fraud-detection-ml
 pip install -r requirements.txt
-</pre>
+```
 
 ---
 
@@ -149,14 +151,14 @@ pip install -r requirements.txt
 
 The main libraries used in this project are:
 
-* Python
-* NumPy
-* Pandas
-* Matplotlib
-* Seaborn
-* Scikit-learn
-* Joblib
-* Jupyter
+- Python
+- NumPy
+- Pandas
+- Matplotlib
+- Seaborn
+- Scikit-learn
+- Joblib
+- Jupyter
 
 See `requirements.txt` for the complete dependency list.
 
@@ -166,13 +168,13 @@ See `requirements.txt` for the complete dependency list.
 
 This project demonstrates practical machine learning skills including:
 
-* Working with structured transaction data
-* Handling categorical and numerical features
-* Preparing data for classification
-* Working with imbalanced datasets
-* Comparing baseline and ensemble models
-* Evaluating models using multiple classification metrics
-* Saving a trained model for later use
+- Working with structured transaction data
+- Handling categorical and numerical features
+- Preparing data for classification
+- Working with imbalanced datasets
+- Comparing baseline and ensemble models
+- Evaluating models using multiple classification metrics
+- Saving a trained model for later use
 
 ---
 
@@ -182,15 +184,15 @@ This project is intended as a practical machine learning and portfolio exercise 
 
 It does not currently cover:
 
-* Real-time transaction processing
-* Cost-sensitive threshold optimization
-* Concept drift detection
-* Production model monitoring
-* Automated retraining pipelines
-* Advanced anomaly-detection techniques
-* API deployment
-* Containerized deployment
-* Security, compliance, and regulatory requirements
+- Real-time transaction processing
+- Cost-sensitive threshold optimization
+- Concept drift detection
+- Production model monitoring
+- Automated retraining pipelines
+- Advanced anomaly-detection techniques
+- API deployment
+- Containerized deployment
+- Security, compliance, and regulatory requirements
 
 Therefore, the reported performance should be interpreted as dataset-specific evaluation results rather than evidence of production readiness.
 
@@ -200,14 +202,14 @@ Therefore, the reported performance should be interpreted as dataset-specific ev
 
 Potential extensions for a more advanced version include:
 
-* Advanced feature engineering
-* Improved handling of class imbalance
-* Threshold optimization based on fraud-detection costs
-* Gradient boosting models
-* Explainable AI techniques
-* Model monitoring and drift detection
-* API deployment
-* Docker-based deployment
+- Advanced feature engineering
+- Improved handling of class imbalance
+- Threshold optimization based on fraud-detection costs
+- Gradient boosting models
+- Explainable AI techniques
+- Model monitoring and drift detection
+- API deployment
+- Docker-based deployment
 
 ---
 
